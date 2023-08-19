@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Box, Modal, Typography } from "@mui/material";
-import { MainContext } from "../provider/ContextProvider";
+import { MainContext } from "../../provider/ContextProvider";
 
 const style = {
   position: "absolute" as "absolute",

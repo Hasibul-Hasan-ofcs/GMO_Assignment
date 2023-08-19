@@ -4,7 +4,7 @@ import { TextField, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import "./userinfo.css";
 import { MainContext } from "../../provider/ContextProvider";
-import ModalMUI from "../../components/ModalMUI";
+import ModalMUI from "../../components/Modal/ModalMUI";
 
 const UserInfoForm = () => {
   const [name, setName] = useState("");

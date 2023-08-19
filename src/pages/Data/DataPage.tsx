@@ -5,6 +5,7 @@ import { MainContext } from "../../provider/ContextProvider";
 import Box from "@mui/material/Box";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import "./dataPage.css";
+import AccordionCollapse from "../../components/Collapsible/AccordionCollapse";
 
 interface localObject {
   email: string;
@@ -19,9 +20,15 @@ interface JSONDataInterface {
   body: string;
 }
 
+interface deptPropInterface {
+  department: string;
+  sub_departments: string[];
+}
+
 const DataPage = () => {
   // states
   const [postData, setPostData] = useState<JSONDataInterface[]>([]);
+  const [deptState, setDeptState] = useState<deptPropInterface[]>([]);
 
   // context API
   const contextInfo = useContext(MainContext);
@@ -48,8 +55,17 @@ const DataPage = () => {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setPostData(data);
+      });
+  }, []);
+
+  // Fetching department data
+  useEffect(() => {
+    fetch("/DepartmentData.json")
+      .then((response) => response.json())
+      .then((data) => {
+        // console.log(data);
+        return setDeptState(data);
       });
   }, []);
 
@@ -81,7 +97,7 @@ const DataPage = () => {
     <>
       {open === true && <Navigate to="/" replace={true} />}
       {open === false && (
-        <>
+        <div className="dataMainBox">
           <div className="dataGridBox">
             <h2>Data Grid</h2>
             <Box sx={{ height: 400, width: "80%" }}>
@@ -101,7 +117,17 @@ const DataPage = () => {
               />
             </Box>
           </div>
-        </>
+          <div className="dataAccordionBox">
+            <h2>Department Data</h2>
+            {deptState.map((el, indx) => (
+              <AccordionCollapse
+                department={el?.department}
+                sub_departments={el?.sub_departments}
+                key={indx}
+              ></AccordionCollapse>
+            ))}
+          </div>
+        </div>
       )}
     </>
   );

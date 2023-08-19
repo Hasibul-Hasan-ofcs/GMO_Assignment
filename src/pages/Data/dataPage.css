@@ -1,3 +1,9 @@
+.dataMainBox {
+  /* overflow-x: hidden !important; */
+  min-height: 100vh;
+}
+
+.dataMainBox,
 .dataGridBox {
   display: flex;
   flex-direction: column;
@@ -7,6 +13,16 @@
   width: 100%;
 }
 
-.dataGridBox h2 {
+.dataGridBox h2,
+.dataAccordionBox h2 {
   text-align: center;
 }
+
+/* .dataAccordionBox {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+} */

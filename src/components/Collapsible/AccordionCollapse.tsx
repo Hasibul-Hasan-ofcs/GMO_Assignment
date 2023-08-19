@@ -17,7 +17,7 @@ interface deptPropInterface {
 export default function AccordionCollapse(props: deptPropInterface) {
   const department = props.department;
   const sub_departments = props.sub_departments;
-  console.log(department, sub_departments);
+  //   console.log(department, sub_departments);
 
   const [checked, setChecked] = React.useState([true, false, false]);
   const [checkedSecondary, setCheckedSecondary] = React.useState([true, false]);
@@ -89,13 +89,17 @@ export default function AccordionCollapse(props: deptPropInterface) {
 
   return (
     <div>
-      <Accordion>
+      <Accordion style={{ width: "300px" }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>
+          <Typography
+            onClick={(event) => {
+              event.stopPropagation();
+            }}
+          >
             {sub_departments.length === 3 ? (
               <FormControlLabel
                 label={`${department}`}
@@ -126,7 +130,7 @@ export default function AccordionCollapse(props: deptPropInterface) {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>{children}</Typography>
+          <Typography component={"div"}>{children}</Typography>
         </AccordionDetails>
       </Accordion>
     </div>

@@ -16,7 +16,7 @@ const UserInfoForm = () => {
   const contextInfo = useContext(MainContext);
 
   const open = contextInfo?.open;
-  const setOpen = contextInfo?.setOpen;
+  // const setOpen = contextInfo?.setOpen;
 
   const formSubmitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -32,35 +32,38 @@ const UserInfoForm = () => {
   };
 
   return (
-    <div className="info_div">
+    <div>
       {open && <ModalMUI></ModalMUI>}
-      <form onSubmit={formSubmitHandler}>
-        <TextField
-          id="outlined-basic"
-          label="Name"
-          variant="outlined"
-          type="text"
-          onChange={(e) => setName(e.target.value)}
-        />
-        <TextField
-          id="outlined-basic"
-          label="Phone Number"
-          variant="outlined"
-          type="number"
-          onChange={(e) => setPhoneNo(e.target.value)}
-        />
-        <TextField
-          id="outlined-basic"
-          label="Email"
-          variant="outlined"
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
+      <h2>Please Enter Your Credentials</h2>
+      <div className="info_div">
+        <form onSubmit={formSubmitHandler}>
+          <TextField
+            id="outlined-basic"
+            label="Name"
+            variant="outlined"
+            type="text"
+            onChange={(e) => setName(e.target.value)}
+          />
+          <TextField
+            id="outlined-basic"
+            label="Phone Number"
+            variant="outlined"
+            type="number"
+            onChange={(e) => setPhoneNo(e.target.value)}
+          />
+          <TextField
+            id="outlined-basic"
+            label="Email"
+            variant="outlined"
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-        <Button type="submit" variant="contained">
-          Submit
-        </Button>
-      </form>
+          <Button type="submit" variant="contained">
+            Submit
+          </Button>
+        </form>
+      </div>
     </div>
   );
 };

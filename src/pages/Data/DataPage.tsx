@@ -118,7 +118,7 @@ const DataPage = () => {
             </Box>
           </div>
           <div className="dataAccordionBox">
-            <h2>Department Data</h2>
+            <h2>Department List</h2>
             {deptState.map((el, indx) => (
               <AccordionCollapse
                 department={el?.department}

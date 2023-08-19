@@ -1,0 +1,24 @@
+.MuiButtonBase-root {
+  padding-left: 0 !important;
+}
+
+.MuiAccordionSummary-content {
+  /* padding-left: 25px !important; */
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  min-height: 50px !important;
+  display: flex;
+  align-items: center;
+}
+/* 
+.MuiFormControlLabel-root {
+  padding-left: 30px !important;
+} */
+
+.MuiTypography-root {
+  padding-left: 30px !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  width: 100% !important;
+  height: 100% !important;
+}

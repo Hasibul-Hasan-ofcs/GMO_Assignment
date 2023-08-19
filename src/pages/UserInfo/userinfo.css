@@ -1,0 +1,11 @@
+.info_div {
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 3px 3px 10px 10px rgba(66, 66, 66, 0.1);
+}
+
+.info_div form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
